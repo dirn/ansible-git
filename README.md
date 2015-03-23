@@ -48,9 +48,9 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - role: dirn.git
-           git_install_gitsh: true
-           git_install_hub: true
+        - role: dirn.git
+          git_install_gitsh: true
+          git_install_hub: true
 
 License
 -------
