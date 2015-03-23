@@ -1,7 +1,7 @@
 language: python
 python: "2.7"
 
-rvm: 1.9.3
+rvm: 2.2.1
 
 install:
   - pip install ansible
