@@ -2,7 +2,7 @@
 galaxy_info:
   author: Andy Dirnberger
   description: Installs Git and related utilities.
-  company: your company (optional)
+  company:
   license: MIT
   min_ansible_version: 1.6
   platforms:
