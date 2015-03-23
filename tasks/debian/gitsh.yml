@@ -4,7 +4,7 @@
     dest: /tmp/gitsh-{{ git_version_gitsh }}.tar.gz
 
 - name: Extract gitsh
-  unarchive: src=/tmp/gitsh-{{ git_version_gitsh }}.tar.gz dest=/tmp/gitsh-{{ git_version_gitsh }}
+  unarchive: src=/tmp/gitsh-{{ git_version_gitsh }}.tar.gz dest=/tmp
 
 - name: Install gitsh
   shell: chdir=/tmp/gitsh-{{ git_version_gitsh }} {{ item }}
