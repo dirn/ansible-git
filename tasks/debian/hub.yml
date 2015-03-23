@@ -1,6 +1,5 @@
 - name: Download hub
   get_url:
-    creates: "{{ git_utility_root }}/hub"
     url: https://github.com/github/hub/releases/download/v{{ git_version_hub }}/hub-linux-amd64-{{ git_version_hub }}.tar.gz
     dest: /tmp/hub-linux-amd64-{{ git_version_hub }}.tar.gz
 
