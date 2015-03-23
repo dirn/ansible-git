@@ -18,6 +18,11 @@ Role Variables
 
 Several variables are available to configure the role.
 
+To set the name of the run commands file that will initialize the related
+utilities:
+
+    git_runcom: ~/.bashrc
+
 To control where the related utilities are installed:
 
     git_utility_root: /usr/local/bin
@@ -49,6 +54,7 @@ Example Playbook
     - hosts: servers
       roles:
         - role: dirn.git
+          git_runcom: ~/.zshrc
           git_install_gitsh: true
           git_install_hub: true
 

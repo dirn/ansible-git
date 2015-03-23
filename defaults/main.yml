@@ -1,4 +1,5 @@
 ---
+git_runcom: ~/.bashrc
 git_utility_root: /usr/local/bin
 
 git_install_gitsh: false

@@ -16,3 +16,19 @@
 
 - include: osx/hub.yml
   when: git_install_hub and ansible_os_family == 'Darwin'
+
+- include: Add hub to run commands
+  lineinfile: >
+    dest={{ git_runcom }}
+    state=present
+    create=yes
+    line="eval \"$(hub alias -s)\""
+  when: git_install_hub
+
+- include: Use gitsh with hub
+  lineinfile: >
+    dest={{ git_runcom }}
+    state=present
+    create=yes
+    line="alias gitsh=\"gitsh --git $(which hub)\""
+  when: git_install_hub and git_install_gitsh
