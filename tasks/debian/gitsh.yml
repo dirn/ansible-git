@@ -1,13 +1,13 @@
 - name: Download gitsh
   get_url:
-    url: https://github.com/thoughtbot/gitsh/releases/download/v{{ git_version_gitsh }}/gitsh-{{ git_version_gitsh }}.tar.gz
-    dest: /tmp/gitsh-{{ git_version_gitsh }}.tar.gz
+    url: https://github.com/thoughtbot/gitsh/releases/download/v{{ git_gitsh_version }}/gitsh-{{ git_gitsh_version }}.tar.gz
+    dest: /tmp/gitsh-{{ git_gitsh_version }}.tar.gz
 
 - name: Extract gitsh
-  unarchive: src=/tmp/gitsh-{{ git_version_gitsh }}.tar.gz dest=/tmp
+  unarchive: src=/tmp/gitsh-{{ git_gitsh_version }}.tar.gz dest=/tmp
 
 - name: Install gitsh
-  shell: chdir=/tmp/gitsh-{{ git_version_gitsh }} {{ item }}
+  shell: chdir=/tmp/gitsh-{{ git_gitsh_version }} {{ item }}
   with_items:
     - ./configure
     - make

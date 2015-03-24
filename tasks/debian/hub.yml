@@ -1,19 +1,19 @@
 - name: Download hub
   get_url:
-    url: https://github.com/github/hub/releases/download/v{{ git_version_hub }}/hub-linux-amd64-{{ git_version_hub }}.tar.gz
-    dest: /tmp/hub-linux-amd64-{{ git_version_hub }}.tar.gz
+    url: https://github.com/github/hub/releases/download/v{{ git_hub_version }}/hub-linux-amd64-{{ git_hub_version }}.tar.gz
+    dest: /tmp/hub-linux-amd64-{{ git_hub_version }}.tar.gz
 
 - name: Extract hub
   unarchive:
-    creates: "{{ git_utility_root }}/hub-{{ git_version_hub }}"
-    src: /tmp/hub-linux-amd64-{{ git_version_hub }}.tar.gz
+    creates: "{{ git_utility_root }}/hub-{{ git_hub_version }}"
+    src: /tmp/hub-linux-amd64-{{ git_hub_version }}.tar.gz
     dest: /tmp
 
 - name: Install hub
-  command: creates={{ git_utility_root }}/hub-{{ git_version_hub }} mv /tmp/hub-linux-amd64-{{ git_version_hub }}/hub {{ git_utility_root }}/hub-{{ git_version_hub }}
+  command: creates={{ git_utility_root }}/hub-{{ git_hub_version }} mv /tmp/hub-linux-amd64-{{ git_hub_version }}/hub {{ git_utility_root }}/hub-{{ git_hub_version }}
 
 - name: Create symlink for hub
   file:
-    src: "{{ git_utility_root }}/hub-{{ git_version_hub }}"
+    src: "{{ git_utility_root }}/hub-{{ git_hub_version }}"
     dest: "{{ git_utility_root }}/hub"
     state: link

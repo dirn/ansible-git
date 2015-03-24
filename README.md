@@ -30,17 +30,17 @@ To control where the related utilities are installed:
 To control if [gitsh](https://github.com/thoughtbot/gitsh) is installed:
 
     git_install_gitsh: false
-    git_version_gitsh: '0.9'
+    git_gitsh_version: '0.9'
 
-> `git_version_gitsh` isn't used in OS X since Homebrew is used to manage
+> `git_gitsh_version` isn't used in OS X since Homebrew is used to manage
 > installation.
 
 To control if [hub](https://github.com/github/hub) is installed:
 
     git_install_hub: false
-    git_version_hub: '2.2.0'
+    git_hub_version: '2.2.0'
 
-> `git_version_hub` isn't used in OS X since Homebrew is used to manage
+> `git_hub_version` isn't used in OS X since Homebrew is used to manage
 > installation.
 
 Dependencies
