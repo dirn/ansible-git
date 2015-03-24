@@ -14,6 +14,6 @@
 
 - name: Create symlink for hub
   file:
-    src: {{ git_utility_root }}/hub-{{ git_version_hub }}
-    dest: {{ git_utility_root }}/hub
+    src: "{{ git_utility_root }}/hub-{{ git_version_hub }}"
+    dest: "{{ git_utility_root }}/hub"
     state: link
