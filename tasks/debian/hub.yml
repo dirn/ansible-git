@@ -5,8 +5,14 @@
 
 - name: Extract hub
   unarchive:
-    creates: "{{ git_utility_root }}/hub"
+    creates: "{{ git_utility_root }}/hub-{{ git_version_hub }}"
     src: /tmp/hub-linux-amd64-{{ git_version_hub }}.tar.gz dest=/tmp
 
 - name: Install hub
-  command: mv /tmp/hub-linux-amd64-{{ git_version_hub }}/hub {{ git_utility_root }}/hub
+  command: mv /tmp/hub-linux-amd64-{{ git_version_hub }}/hub {{ git_utility_root }}/hub-{{ git_version_hub }}
+
+- name: Create symlink for hub
+  file:
+    src: {{ git_utility_root }}/hub-{{ git_version_hub }}
+    dest: {{ git_utility_root }}/hub
+    state: link
