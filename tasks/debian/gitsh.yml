@@ -9,6 +9,6 @@
 - name: Install gitsh
   shell: chdir=/tmp/gitsh-{{ git_gitsh_version }} {{ item }}
   with_items:
-    - RUBY=$(which ruby) ./configure
+    - ./configure
     - make
     - sudo make install
