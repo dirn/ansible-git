@@ -11,6 +11,9 @@ before_install:
   - sudo apt-get update -qq
 
 script:
+  # Debugging Travis CI
+  - ruby --version
+
   # Check the syntax.
   - ansible-playbook -i tests/inventory tests/tests.yml --syntax-check
 
