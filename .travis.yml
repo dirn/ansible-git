@@ -1,9 +1,8 @@
-language: ruby
-rvm:
-  - 2.2.1
+language: python
+python: "2.7"
 
 install:
-  - sudo apt-get install -y ansible
+  - pip install ansible
 
   # Add ansible.cfg to pick up roles path.
   - "printf '[defaults]\\nroles_path = ../' > ansible.cfg"
