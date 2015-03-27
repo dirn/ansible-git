@@ -15,11 +15,11 @@ script:
   - ansible-playbook -i tests/inventory tests/tests.yml --syntax-check
 
   # Run the role.
-  - RUBY=$(which ruby) ansible-playbook -i tests/inventory tests/tests.yml --connection=local --sudo
+  - RUBY=$(which ruby) ansible-playbook -i tests/inventory tests/tests.yml --connection=local
 
   # Check for idempotence.
   - >
-    RUBY=$(which ruby) ansible-playbook -i tests/inventory tests/tests.yml --connection=local --sudo
+    RUBY=$(which ruby) ansible-playbook -i tests/inventory tests/tests.yml --connection=local
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
