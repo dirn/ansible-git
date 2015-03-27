@@ -1,15 +1,27 @@
 ---
+- name: Check gitsh version
+  shell: gitsh --version | awk '{print $1}'
+  register: gitsh_version
+  changed_when: false
+
 - name: Download gitsh
   get_url:
     url: https://github.com/thoughtbot/gitsh/releases/download/v{{ git_gitsh_version }}/gitsh-{{ git_gitsh_version }}.tar.gz
     dest: /tmp/gitsh-{{ git_gitsh_version }}.tar.gz
+  when: gitsh_version.stdout != git_gitsh_version
 
 - name: Extract gitsh
   unarchive: src=/tmp/gitsh-{{ git_gitsh_version }}.tar.gz dest=/tmp
+  when: gitsh_version.stdout != git_gitsh_version
 
-- name: Install gitsh
+- name: Prepare to install gitsh
   shell: chdir=/tmp/gitsh-{{ git_gitsh_version }} {{ item }}
   with_items:
     - ./configure
     - make
-    - sudo make install
+  when: gitsh_version.stdout != git_gitsh_version
+
+- name: Install gitsh
+  sudo: yes
+  shell: chdir=/tmp/gitsh-{{ git_gitsh_version }} make install
+  when: gitsh_version.stdout != git_gitsh_version
