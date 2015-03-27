@@ -1,3 +1,4 @@
+---
 - name: Download gitsh
   get_url:
     url: https://github.com/thoughtbot/gitsh/releases/download/v{{ git_gitsh_version }}/gitsh-{{ git_gitsh_version }}.tar.gz

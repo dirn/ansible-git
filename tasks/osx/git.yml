@@ -1,2 +1,3 @@
+---
 - name: Install
   homebrew: name=git state=present

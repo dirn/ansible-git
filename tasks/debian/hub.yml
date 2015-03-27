@@ -1,3 +1,4 @@
+---
 - name: Download hub
   get_url:
     url: https://github.com/github/hub/releases/download/v{{ git_hub_version }}/hub-linux-amd64-{{ git_hub_version }}.tar.gz
