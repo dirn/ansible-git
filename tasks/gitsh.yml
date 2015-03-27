@@ -1,0 +1,14 @@
+---
+- include: debian/gitsh.yml
+  when: ansible_os_family == 'Debian'
+
+- include: osx/gitsh.yml
+  when: ansible_os_family == 'Darwin'
+
+- name: Use gitsh with hub
+  lineinfile: >
+    dest={{ git_runcom }}
+    state=present
+    create=yes
+    line="alias gitsh=\"gitsh --git $(which hub)\""
+  when: git_install_hub

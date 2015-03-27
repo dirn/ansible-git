@@ -1,0 +1,13 @@
+---
+- include: debian/hub.yml
+  when: ansible_os_family == 'Debian'
+
+- include: osx/hub.yml
+  when: ansible_os_family == 'Darwin'
+
+- name: Add hub to run commands
+  lineinfile: >
+    dest={{ git_runcom }}
+    state=present
+    create=yes
+    line="eval \"$(hub alias -s)\""

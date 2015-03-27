@@ -5,30 +5,8 @@
 - include: osx/git.yml
   when: ansible_os_family == 'Darwin'
 
-- include: debian/gitsh.yml
-  when: git_install_gitsh and ansible_os_family == 'Debian'
-
-- include: osx/gitsh.yml
-  when: git_install_gitsh and ansible_os_family == 'Darwin'
-
-- include: debian/hub.yml
-  when: git_install_hub and ansible_os_family == 'Debian'
-
-- include: osx/hub.yml
-  when: git_install_hub and ansible_os_family == 'Darwin'
-
-- name: Add hub to run commands
-  lineinfile: >
-    dest={{ git_runcom }}
-    state=present
-    create=yes
-    line="eval \"$(hub alias -s)\""
+- include: hub.yml
   when: git_install_hub
 
-- name: Use gitsh with hub
-  lineinfile: >
-    dest={{ git_runcom }}
-    state=present
-    create=yes
-    line="alias gitsh=\"gitsh --git $(which hub)\""
-  when: git_install_hub and git_install_gitsh
+- include: gitsh.yml
+  when: git_install_gitsh
