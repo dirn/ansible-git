@@ -5,3 +5,4 @@
     - role: ansible-git
       git_install_gitsh: true
       git_install_hub: true
+      git_utility_root: '~'
