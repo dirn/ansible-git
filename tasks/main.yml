@@ -1,9 +1,5 @@
 ---
-- include: debian/git.yml
-  when: ansible_os_family == 'Debian'
-
-- include: osx/git.yml
-  when: ansible_os_family == 'Darwin'
+- include: git.yml
 
 - include: hub.yml
   when: git_install_hub
